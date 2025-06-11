@@ -155,7 +155,7 @@ class Allpattern{
         //     }
         //     System.out.println();
         // }
-        //another method
+        // another method
         // for(int i=1;i<=n;i++){
         //     char a='A';
         //     for(int j=1;j<=i;j++){
@@ -263,15 +263,43 @@ class Allpattern{
 
 
         //21.
-        for(int i=1;i<=n;i++){
-            for(int j=1;j<=n;j++){
-                if(i==1 || i==n || j==1 ||j==n){
-                    System.out.print("*");
-                }
-                else System.out.print(" ");
+        // for(int i=1;i<=n;i++){
+        //     for(int j=1;j<=n;j++){
+        //         if(i==1 || i==n || j==1 ||j==n){
+        //             System.out.print("*");
+        //         }
+        //         else System.out.print(" ");
+        //     }
+        //     System.out.println();
+        // }
+        
+
+
+        //22.
+        for(int i=1;i<=2*n-1;i++){
+            for(int j=1;j<=2*n-1;j++){
+                if(i<=n && j<=n){ 
+                if(i<=j) System.out.print(n-i+1+" ");
+                else  System.out.print(n-j+1+" ");
             }
-            System.out.println();
+            else if(i<=n && j>n){ 
+                if(i+j>=2*n) System.out.print(j-n+1+" ");
+                else  System.out.print(n-i+1+" ");
+            }
+            else if(i>n && j<=n){ 
+                if(i+j<=2*n) System.out.print(n-j+1+" ");
+                else  System.out.print(i-n+1+" ");
+            }
+           
+            else{
+                if(i>=j) System.out.print(i-n+1+" ");
+                else  System.out.print(j-n+1+" ");
+            }
+            
         }
+        System.out.println();
+        }
+
 
 
 
