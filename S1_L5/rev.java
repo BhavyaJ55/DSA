@@ -1,14 +1,34 @@
 import java.util.*;
-class rev{
+
+class rev {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int size= sc.nextInt();
+        int size = sc.nextInt();
         int[] a = new int[size];
         for (int i = 0; i < size; i++) {
-            a[i]=sc.nextInt();
+            a[i] = sc.nextInt();
+        }
+        revarr(a, 0, size - 1);
+        for (int i = 0; i < size; i++) {
+            System.out.print(a[i] + " ");
+        }
+    }
+
+    public static void revarr(int[] a, int l, int r) {
+        if (l >= r) {
+            return;
         }
 
-        //method1
+        int temp = a[l];
+        a[l] = a[r];
+        a[r] = temp;
+        revarr(a, ++l, --r);
+    }
+     
+
+
+
+    //method1
         // for (int i = size-1; i >=0; i--) {
         //     System.out.print(a[i]+" ");
         // }
@@ -23,17 +43,16 @@ class rev{
 
 
         //method3
-        int l=0,r=size-1;
-        while(l<r){
-            int temp = a[l];
-            a[l]=a[r];
-            a[r]=temp;
-             l++;
-             r--;
-        }
+        // int l=0,r=size-1;
+        // while(l<r){
+        //     int temp = a[l];
+        //     a[l]=a[r];
+        //     a[r]=temp;
+        //      l++;
+        //      r--;
+        // }
        
-           for (int i = 0; i < size; i++) {
-            System.out.print(a[i]+" ");
-        }
-        }
-    }
+        //    for (int i = 0; i < size; i++) {
+        //     System.out.print(a[i]+" ");
+        // }
+}

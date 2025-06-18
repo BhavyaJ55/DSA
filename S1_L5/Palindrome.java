@@ -1,14 +1,44 @@
 import java.util.*;
 
 class Palindrome {
+    public boolean isPalindrome(String s) {
+        StringBuilder sen = lowup(s); // Cleaned and lowercase version of string
+        StringBuilder temp = new StringBuilder();
+        temp.append(sen);             // Copy of cleaned string
+        temp.reverse();               // Reverse the copy
+        return (temp.toString().equals(sen.toString()));
+        // if (temp.toString().equals(sen.toString())) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+    }
+
+    // Method to convert to lowercase and remove non-alphanumeric characters
+    public static StringBuilder lowup(String sen) {
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < sen.length(); i++) {
+            char c = sen.charAt(i);
+
+            if (Character.isLetterOrDigit(c)) {
+                result.append(Character.toLowerCase(c));
+            }
+        }
+
+        return result;
+    }
+
+    // Main method
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();  // Read a full line of input
+        System.out.println("Enter a string to check for palindrome:");
+        String input = sc.nextLine();
 
-        Solution sol = new Solution();
-        boolean result = sol.isPalindrome(input);
+        Palindrome sol = new Palindrome();
+        boolean isPalin = sol.isPalindrome(input);
 
-        if (result) {
+        if (isPalin) {
             System.out.println("Palindrome");
         } else {
             System.out.println("Not a palindrome");
@@ -16,23 +46,7 @@ class Palindrome {
     }
 }
 
-class Solution {
-    public boolean isPalindrome(String s) {
-        StringBuilder filtered = filterString(s);
-        StringBuilder reversed = new StringBuilder(filtered).reverse();
-        return filtered.toString().equals(reversed.toString());
-    }
 
-    private StringBuilder filterString(String s) {
-        StringBuilder sb = new StringBuilder();
-        for (char c : s.toCharArray()) {
-            if (Character.isLetterOrDigit(c)) {
-                sb.append(Character.toLowerCase(c));
-            }
-        }
-        return sb;
-    }
-}
 
 // import java.util.*;
 // class Palindrome{
